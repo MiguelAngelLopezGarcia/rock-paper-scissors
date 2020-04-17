@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html>
 
-<head>
 
-<title>Game of Rock-Paper-Scissors</title>
-
-<script>
 let numRounds = 5;
 let actualRound = 0;
 let roundsLeft = 4;
@@ -71,12 +65,3 @@ if (playerScore < computerScore) {
 } else if (playerScore == computerScore) {
     alert("The game it's tie!")
 }
-
-</script>
-
-</head>
-
-<body>
-</body>
-
-</html>

@@ -3,80 +3,63 @@
 
 <head>
 
-<title>Game of Rock-Paper-Scissors</title>
+    <title>Game of Rock-Paper-Scissors</title>
 
-<script>
-let numRounds = 5;
-let actualRound = 0;
-let roundsLeft = 4;
-let playerScore = 0;
-let computerScore = 0;
-
-while (actualRound != numRounds) {
-    const computerPlay = () => {
-        let pcPick = Math.random()*3;
-        pcPick = Math.floor(pcPick);
-
-        const rps = ["rock", "paper", "scissors"];
-        return rps[pcPick];
-    }
-
-    const userPlay = () => {
-        userPick = prompt("Choose between Rock, Paper and Scissors.");
-        return userPick.toLowerCase()
-    }
-
-    const score = () => {
-        return ("Player: " + playerScore + " points." +"\nComputer: " + 
-        computerScore + " points.")
-    }
-
-    function playRound(playerSelection, computerSelection){
-        switch(playerSelection + computerSelection) {
-            case "rockscissors":
-            case "paperrock":
-            case "scissorspaper":
-            playerScore++
-            return ("You win! " + playerSelection + " beats " + computerSelection + 
-            "." + "\nYou have " + roundsLeft + " rounds left.\n" + score());
-            break;
-            case "rockpaper":
-            case "paperscissors":
-            case "scissorsrock":
-            computerScore++
-            return ("You lose! " + computerSelection + " beats " + playerSelection + 
-            "." + "\nYou have " + roundsLeft + " rounds left.\n" + score());
-            break;
-            case "rockrock":
-            case "paperpaper":
-            case "scissorsscissors":
-            return ("It's a tie!" +"\nYou have " + roundsLeft + " rounds left.\n"
-            + score());
-            break;
-        }
-    }
-
-    const playerSelection = userPlay();
-    const computerSelection = computerPlay();
-
-    alert(playRound(playerSelection, computerSelection));
-    actualRound++
-    roundsLeft--
-}
-
-if (playerScore < computerScore) {
-    alert("You lose the game!")
-} else if (playerScore > computerScore) {
-    alert("You win the game!")
-} else if (playerScore == computerScore) {
-    alert("The game it's tie!")
-}
-
-</script>
+    <link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
 
 <body>
+    <header>
+        <h1 id="title">THE MOST LEGENDARY ROCK/PAPER/SCISSORS GAME EVER</h1>
+        <button id="rules">How to play</button>
+    </header>
+
+    <main>
+        <div id="roundScore">
+            <div id="round">
+                <h2 id="roundText">Rounds left: </h2>
+                <h2 class="roundNumber">5</h2>
+            </div>
+            <div id="score">
+                <h2 id="scoreText">Score</h2>
+                <div id="scorePlayer">
+                    <h3 id="playerText">Player: </h3>
+                    <h3 class="playerPunctuation">0</h3>
+                </div>
+                <div id="scorePC">
+                    <h3 id="computerText">Computer: </h3>
+                    <h3 class="computerPunctuation">0</h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="RoundWinner">
+            <h2 class="winner">Can you beat the Computer?</h2>
+        </div>
+
+        <div id="confrontation">
+            <img id="playerIMG" src="img/player.jpg">
+            <h1 id="VS" class="VS">VS</h1>
+            <img id="computerIMG" src="img/computer.png">
+        </div>
+
+        <div id="selection">
+            <h3 id="selectionText">Choose between</h3>
+            <div id="selectionIMG">
+                <img id="selectionRock" src="img/rock.jpg">
+                <img id="selectionPaper" src="img/paper.jpg">
+                <img id="selectionScissors" src="img/scissors.png">
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <button id="restart">Restart Game</button>
+    </footer>
+
+    <script src="game.js"></script>
+
 </body>
 
 </html>
